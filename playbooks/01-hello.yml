@@ -1,0 +1,14 @@
+---
+- name: Первый урок — проверить два сервера и создать файл
+  hosts: servers
+  gather_facts: true
+  tasks:
+    - name: Показать имя управляемого сервера
+      ansible.builtin.debug:
+        msg: "Привет от {{ inventory_hostname }}! ОС: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Создать файл на каждом сервере
+      ansible.builtin.copy:
+        dest: /tmp/hello-from-ansible.txt
+        content: "Файл создан Ansible на {{ inventory_hostname }}\n"
+        mode: '0644'
