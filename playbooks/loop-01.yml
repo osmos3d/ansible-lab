@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    list:
+      - apple
+      - orange
+      - pineapple
+
+  tasks:
+    - name: loop print vars
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ list }}"
