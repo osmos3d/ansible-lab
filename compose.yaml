@@ -31,6 +31,15 @@ services:
     networks:
       - ansible_lab
 
+  node3:
+    build: ./nodes
+    container_name: lab-node3
+    hostname: node3
+    volumes:
+      - ssh_keys:/keys:ro
+    networks:
+      - ansible_lab
+
 networks:
   ansible_lab:
 
