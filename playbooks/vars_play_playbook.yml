@@ -1,5 +1,5 @@
 ---
-- hosts: node-1
+- hosts: all
   gather_facts: no
   vars:
     play_vars:
